@@ -1,5 +1,6 @@
 package com.example.klinik;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -16,6 +18,10 @@ import com.example.klinik.model.model_user.DataUser;
 import com.example.klinik.model.model_user.ResponseRegister;
 import com.example.klinik.myinterface.InitComponent;
 import com.example.klinik.utils.validate;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
@@ -41,6 +47,8 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
     private RadioButton rbp;
     private Button button_regist;
     private CoordinatorLayout coordinatorLayout;
+
+    Calendar myCalendar = Calendar.getInstance();
 
     //declare context
     private Context mContext;
@@ -98,8 +106,42 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
         rbl=(RadioButton)findViewById(R.id.jkl);
         rbp=(RadioButton)findViewById(R.id.jkp);
         button_regist=(Button)findViewById(R.id.button_regist);
+        birth = findViewById(R.id.birth);
+
+        birth.setFocusableInTouchMode(false);
+        birth.setFocusable(false);
+        birth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(ActivityRegister.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
 
 
+            DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+                @Override
+                public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                      int dayOfMonth) {
+                    // TODO Auto-generated method stub
+                    myCalendar.set(Calendar.YEAR, year);
+                    myCalendar.set(Calendar.MONTH, monthOfYear);
+                    myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                    setBirth();
+                }
+
+            };
+
+            private void setBirth() {
+                String myFormat = "dd MMMM yyyy"; //In which you need put here
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+                birth.setText(sdf.format(myCalendar.getTime()));
+            }
+
+
+        });
     }
 
     @Override
