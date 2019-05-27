@@ -39,6 +39,9 @@
         <activity
             android:name=".ActivityRekam"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityBantuan"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -5,286 +5,223 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorBackground"
+    android:background="@drawable/gradientbackgroundberanda"
     tools:context=".ActivityBeranda">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="315dp"
-        android:background="#1999D7">
-
-        <TextView
-            android:id="@+id/fonthome"
+        android:layout_height="385dp">
+        <LinearLayout
+            android:background="@drawable/gradientbackgroundberanda"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:height="50dp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="sans-serif-condensed"
-            android:padding="14dp"
-            android:text="KLINIK SAHADUTA"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_light"
-            android:textSize="20dp" />
-
-        <ViewFlipper
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="260dp"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/v_flipper"/>
-
-    </RelativeLayout>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="230dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:paddingBottom="300dp">
-
-    </android.support.v7.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_height="330dp"
             android:orientation="vertical">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/fonthome"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NOMOR ANTRIAN "
+                android:height="50dp"
+                android:background="@color/colorAccent"
+                android:paddingTop="8dp"
+                android:text="KLINIK SAHADUTA"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:textSize="25dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:text="6"
-                android:textColor="@color/colorStartRed"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <ViewFlipper
+
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/v_flipper"/>
+
+
+
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ANTRIAN SEKARANG"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:text="2"
-                android:textColor="@color/colorStartRed"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BELUM TERPANGGIL"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:text="4"
-                android:textColor="@color/colorStartRed"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="137dp"
-        android:clipToPadding="false"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingTop="10dp">
 
         <android.support.v7.widget.CardView
-            android:layout_width="160dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:background="@color/colorLightGrayLine">
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="250dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingBottom="300dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:padding="10dp"
-                        android:src="@drawable/iconpesan" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:text="Pesan Antrian"
+                        android:text="NOMOR ANTRIAN "
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:text="6"
+                        android:textColor="@color/colorStartRed"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_margin="10dp"
-                        android:background="@color/colorLightGrayLine" />
-
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ANTRIAN SEKARANG"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:text="2"
+                        android:textColor="@color/colorStartRed"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BELUM TERPANGGIL"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:text="4"
+                        android:textColor="@color/colorStartRed"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
         </android.support.v7.widget.CardView>
 
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false" >
+
         <android.support.v7.widget.CardView
+            android:layout_marginRight="25dp"
+            android:layout_margin="25dp"
             android:layout_width="160dp"
             android:layout_height="100dp"
-            android:layout_margin="10dp">
-
-            <LinearLayout
+            >
+            <Button
+                android:id="@+id/Pemesanan"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_margin="0dp"
+                android:background="@color/colorWhite"
+                android:drawableTop="@drawable/iconpesan"
+                android:padding="0dp"
+                android:layout_marginLeft="100dp"
+                android:text="Pemesanan" />
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_marginRight="20dp"
+            android:layout_width="160dp"
+            android:layout_height="100dp">
 
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:padding="10dp"
-                    android:src="@drawable/icriwayat" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Riwayat Pemesanan"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="10dp"
-                    android:background="@color/colorLightGrayLine" />
-
-
-            </LinearLayout>
+            <Button
+                android:id="@+id/Riwayat_Pemesanan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:background="@color/colorWhite"
+                android:drawableTop="@drawable/icriwayat"
+                android:padding="0dp"
+                android:layout_marginLeft="100dp"
+                android:text="Riwayat Pemesanan" />
 
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:clipToPadding="false"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="10dp">
+        android:gravity="center"
+        android:clipToPadding="false" >
 
         <android.support.v7.widget.CardView
+            android:layout_marginRight="25dp"
             android:layout_width="160dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp">
-
-            <LinearLayout
+            android:layout_height="100dp">
+            <Button
+                android:id="@+id/Profil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_margin="0dp"
+                android:background="@color/colorWhite"
+                android:drawableTop="@drawable/icprofil"
+                android:padding="0dp"
+                android:layout_marginLeft="100dp"
+                android:text="Profil" />
 
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:padding="10dp"
-                    android:src="@drawable/icprofil" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Profil"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="10dp"
-                    android:background="@color/colorLightGrayLine" />
-
-
-            </LinearLayout>
         </android.support.v7.widget.CardView>
-
         <android.support.v7.widget.CardView
+            android:layout_margin="0dp"
             android:layout_width="160dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp">
+            android:layout_height="100dp">
 
-            <LinearLayout
+            <Button
+                android:id="@+id/Bantuan"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:padding="10dp"
-                    android:src="@drawable/icinfo" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Hotel"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="10dp"
-                    android:background="@color/colorLightGrayLine" />
+                android:layout_margin="0dp"
+                android:background="@color/colorWhite"
+                android:drawableTop="@drawable/icinfo"
+                android:padding="0dp"
+                android:layout_marginLeft="100dp"
+                android:text="Bantuan" />
 
 
-            </LinearLayout>
+
+
+
 
         </android.support.v7.widget.CardView>
 

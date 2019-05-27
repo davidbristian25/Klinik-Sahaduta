@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="@drawable/bckgrndlgin"
     tools:context=".ActivityLogin">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000"
         android:alpha="0.5"
-        />
+        android:background="#000" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/logo"
@@ -153,6 +152,7 @@
                 android:textColor="#FFF" />
 
             <customfonts.MyTextView
+                android:id="@+id/txt_bantuan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -164,3 +164,4 @@
 
     </LinearLayout>
 </RelativeLayout>
+

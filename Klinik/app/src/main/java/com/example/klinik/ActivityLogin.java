@@ -38,6 +38,7 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
     private MyEditText password;
     private MyTextView btn_login;
     private MyTextView txt_register;
+    private MyTextView txt_bantuan;
     private TextView logofont;
     private CoordinatorLayout coordinatorlayout;
 
@@ -82,12 +83,13 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
 
     @Override
     public void initUI() {
-        no_rm=(MyEditText)findViewById(R.id.no_rm);
         password=(MyEditText)findViewById(R.id.password);
         btn_login=(MyTextView)findViewById(R.id.btn_login);
         txt_register=(MyTextView) findViewById(R.id.txt_register);
+        txt_bantuan=(MyTextView) findViewById(R.id.txt_bantuan);
         logofont=(TextView)findViewById(R.id.logofont);
         Typeface custom_fonts = Typeface.createFromAsset(getAssets(), "fonts/ArgonPERSONAL-Regular.otf");
+        no_rm=(MyEditText)findViewById(R.id.no_rm);
         logofont.setTypeface(custom_fonts);
     }
 
@@ -100,6 +102,7 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
     public void initEvent() {
         btn_login.setOnClickListener(this);
         txt_register.setOnClickListener(this);
+        txt_bantuan.setOnClickListener(this);
     }
 
 
@@ -113,8 +116,12 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
                 break;
 
             case R.id.txt_register:
-                move.moveActivity(mContext,ActivityRegister.class);
+                move.moveActivity(mContext,ActivityBantuan.class);
                 break;
+
+            case R.id.txt_bantuan:
+                    move.moveActivity(mContext,ActivityBeranda.class);
+                    break;
         }
     }
 
