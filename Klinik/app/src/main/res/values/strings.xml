@@ -2,4 +2,9 @@
     <string name="app_name">SAHADUTA KLINIK</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="no_rekamedik">No Rekamedik</string>
+    <string name="komentar">Komentar</string>
+    <string name="komentari">Kirim Komentar</string>
+    <string name="kritik">Kritik</string>
+    <string name="saran">Saran</string>
 </resources>

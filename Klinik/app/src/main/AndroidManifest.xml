@@ -22,7 +22,7 @@
         android:theme="@style/AppThemeRegist"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ActivityLogin"
+            android:name=".KomentarActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +32,9 @@
         </activity>
         <activity
             android:name=".ActivityRegister"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityLogin"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ActivityBeranda"
