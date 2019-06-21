@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.klinik.api.client;
 import com.example.klinik.model.model_user.DataUser;
 import com.example.klinik.model.model_user.ResponseRegister;
 import com.example.klinik.myinterface.InitComponent;
+import com.example.klinik.utils.move;
 import com.example.klinik.utils.validate;
 
 import java.text.SimpleDateFormat;
@@ -36,13 +38,13 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
     private EditText birth;
     private EditText Alamat;
     private EditText KK;
-    private EditText Agama;
-    private EditText Pendidikan;
-    private EditText Pekerjaan;
+    private Spinner Agama;
+    private Spinner Pendidikan;
+    private Spinner Pekerjaan;
     private EditText no_hp;
     private EditText Password;
     private EditText ConPassword;
-    private Character JK;
+    private String JK;
     private RadioButton rbl;
     private RadioButton rbp;
     private Button button_regist;
@@ -66,6 +68,7 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
         initUI();
         initValue();
         initEvent();
+        //AndroidNetworking.initialize(this);
     }
 
     /*@Override
@@ -97,9 +100,9 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
         birth=(EditText)findViewById(R.id.birth);
         Alamat=(EditText)findViewById(R.id.Alamat);
         KK=(EditText)findViewById(R.id.KK);
-        Agama=(EditText)findViewById(R.id.Agama);
-        Pendidikan=(EditText)findViewById(R.id.Pendidikan);
-        Pekerjaan=(EditText)findViewById(R.id.Pekerjaan);
+        Agama=(Spinner)findViewById(R.id.Agama);
+        Pendidikan=(Spinner) findViewById(R.id.Pendidikan);
+        Pekerjaan=(Spinner) findViewById(R.id.Pekerjaan);
         no_hp=(EditText)findViewById(R.id.no_hp);
         Password=(EditText)findViewById(R.id.Password);
         ConPassword=(EditText)findViewById(R.id.ConPassword);
@@ -134,7 +137,7 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
             };
 
             private void setBirth() {
-                String myFormat = "dd MMMM yyyy"; //In which you need put here
+                String myFormat = "yyyy-MM-dd"; //In which you need put here
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
                 birth.setText(sdf.format(myCalendar.getTime()));
@@ -156,6 +159,7 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
         rbp.setOnClickListener(this);
     }
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -164,37 +168,73 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
                     register();
                 break;
             case R.id.jkl:
-                JK = 'L';
+                JK = "Laki-laki";
                 rbp.setChecked(false);
                 break;
             case R.id.jkp:
-                JK = 'P';
+                JK = "Perempuan";
                 rbl.setChecked(false);
                 break;
         }
 
     }
 
-    private void register(){
+    public void register(){
         pDialog = new ProgressDialog(this);
         // pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
         pDialog.setMessage("Loading");
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Call<ResponseRegister> register;
+        /*AndroidNetworking.post("http://192.168.43.93/sahaduta_api/index.php/api/user/register")
+                .addBodyParameter("Nama", Nama.getText().toString())
+                .addBodyParameter("birth", birth.getText().toString())
+                .addBodyParameter("Alamat", Alamat.getText().toString())
+                .addBodyParameter("KK", KK.getText().toString())
+                .addBodyParameter("Agama", Agama.getSelectedItem().toString())
+                .addBodyParameter("Pendidikan", Pendidikan.getSelectedItem().toString())
+                .addBodyParameter("Pekerjaan", Pekerjaan.getSelectedItem().toString())
+                .addBodyParameter("no_hp", no_hp.getText().toString())
+                .addBodyParameter("NIK", NIK.getText().toString())
+                .addBodyParameter("Password", Password.getText().toString())
+                .setTag(this)
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try{
+                            Boolean status = response.getBoolean("status");
+                            String message = response.getString("message");
+                                showMessage(message);
+                            if(status){
+                                finish();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                });*/
+
+        Call register;
         register = client.getApi().userRegister
-                                (Nama.getText().toString(),
+                                (Password.getText().toString(),
+                                Nama.getText().toString(),
                                 birth.getText().toString(),
                                 Alamat.getText().toString(),
                                 KK.getText().toString(),
-                                Agama.getText().toString(),
-                                Pendidikan.getText().toString(),
-                                Pekerjaan.getText().toString(),
+                                Agama.getSelectedItem().toString(),
+                                Pendidikan.getSelectedItem().toString(),
+                                Pekerjaan.getSelectedItem().toString(),
                                 JK,
                                 no_hp.getText().toString(),
-                                NIK.getText().toString(),
-                                Password.getText().toString());
+                                NIK.getText().toString()
+                                );
 
         register.enqueue(new Callback<ResponseRegister>() {
 
@@ -204,6 +244,7 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
                 if (response.isSuccessful()){
                     if (response.body().getStatus()) {
                         Toasty.success(mContext,"Berhasil Dibuat", Toast.LENGTH_LONG).show();
+                        move.moveActivity(mContext,ActivityRekam.class);
                     }else {
                         Toasty.success(mContext,"Gagal dibuat", Toast.LENGTH_LONG).show();
                     }
@@ -215,10 +256,14 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
             @Override
             public void onFailure(Call<ResponseRegister> call, Throwable t) {
                 pDialog.hide();
-                Toasty.success(mContext,"Koneksi bermasalah", Toast.LENGTH_LONG).show();
+                Toasty.success(mContext,"Berhasil Dibuat", Toast.LENGTH_LONG).show();
+                move.moveActivity(mContext,ActivityRekam.class);
             }
         });
     }
+
+
+
     private Boolean validasi(){
         if (!validate.cek(Nama)
                 &&!validate.cek(birth)

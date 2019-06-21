@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="400dp"
+    android:padding="5dp"
+    android:background="@color/colorAzur"
+    android:layout_gravity="center"
+    tools:context=".popuppesan">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Jika anda memesan antrian sekarang maka anda akan berada diantrian :"
+            android:textColor="@color/grey_dark"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/grey_dark"
+            android:layout_marginTop="5dp"
+            android:textSize="60dp"
+            android:hint="11"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Apakah anda yakin ingin memesan antrian?"
+            android:textColor="@color/grey_dark"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false" >
+
+
+
+    <Button
+            android:id="@+id/btnfollow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:text="Pesan"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/buttonstyle"/>
+
+    <Button
+        android:id="@+id/btncancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Batal"
+        android:textColor="@color/colorWhite"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/buttonstyle"/>
+
+    </LinearLayout>
+</LinearLayout>

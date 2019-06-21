@@ -7,4 +7,31 @@
     <string name="komentari">Kirim Komentar</string>
     <string name="kritik">Kritik</string>
     <string name="saran">Saran</string>
+
+    <string-array name="pilih_agama">
+        <item>Pilih Agama</item>
+        <item>Islam</item>
+        <item>Kristen</item>
+        <item>Katolik</item>
+        <item>Hindu</item>
+        <item>Budha</item>
+        <item>Konghuchu</item>
+    </string-array>
+
+    <string-array name="pilih_pendidikan">
+        <item>Pilih Pendidikan</item>
+        <item>SD / sederajat</item>
+        <item>SMP / sederajat</item>
+        <item>SMA / sederajat</item>
+        <item>Strata 1 (S1)</item>
+        <item>Strata 2 (S2)</item>
+        <item>Strata 3 (S3)</item>
+    </string-array>
+
+    <string-array name="pilih_pekerjaan">
+        <item>Pilih Pekerjaan</item>
+        <item>PNS</item>
+        <item>Swasta</item>
+        <item>Buruh</item>
+    </string-array>
 </resources>

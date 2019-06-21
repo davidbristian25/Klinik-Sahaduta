@@ -3,8 +3,7 @@ package com.example.klinik.utils;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-
-import com.example.klinik.helper.DatePickerView;
+import android.widget.Spinner;
 
 /**
  * Created by Ujang Wahyu on 04/01/2018.
@@ -25,11 +24,11 @@ public class validate {
             return cancel;
     }
 
-    public static boolean cek(DatePickerView et) {
+    public static boolean cek(Spinner et) {
         View focusView = null;
         Boolean cancel=false;
-        if (TextUtils.isEmpty(et.getText().toString().trim())) {
-            et.setError("Inputan Harus Di Isi");
+        if (TextUtils.isEmpty(et.getSelectedItem().toString().trim())) {
+            et.setSelected(Boolean.parseBoolean("Inputan Harus Di Isi"));
             focusView = et;
             cancel = true;
         }

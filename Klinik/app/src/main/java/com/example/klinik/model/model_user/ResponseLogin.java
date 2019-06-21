@@ -7,39 +7,39 @@ import com.google.gson.annotations.SerializedName;
  * Created by Ujang Wahyu on 04/01/2018.
  */
 public class ResponseLogin {
-    @SerializedName("status")
-    @Expose
-    private Boolean status;
+  @SerializedName("status")
+  @Expose
+  private Boolean status;
 
-    @SerializedName("message")
-    @Expose
-    private String message;
+  @SerializedName("message")
+  @Expose
+  private String message;
 
-    @SerializedName("data")
-    @Expose
-    private DataUser data = null;
+  @SerializedName("data")
+  @Expose
+  private DataUser data = null;
 
-    public Boolean getStatus() {
-        return status;
-    }
+  public Boolean getStatus() {
+    return status;
+  }
 
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
+  public void setStatus(Boolean status) {
+    this.status = status;
+  }
 
-    public String getMessage() {
-        return message;
-    }
+  public String getMessage() {
+    return message;
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-    public DataUser getData() {
-        return data;
-    }
+  public DataUser getData() {
+    return data;
+  }
 
-    public void setData(DataUser data) {
-        this.data = data;
-    }
+  public void setData(DataUser data) {
+    this.data = data;
+  }
 }
