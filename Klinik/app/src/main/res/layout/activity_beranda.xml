@@ -100,10 +100,11 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/AntrianNow"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="2"
+                        android:inputType="text"
                         android:textColor="@color/colorStartRed"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -149,18 +150,18 @@
             android:layout_width="160dp"
             android:layout_height="100dp"
             >
+
             <Button
                 android:id="@+id/Pemesanan"
-                android:onClick="Pemesananpopup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="0dp"
+                android:layout_marginLeft="100dp"
                 android:background="@color/colorWhite"
                 android:drawableTop="@drawable/iconpesan"
                 android:padding="0dp"
-                android:layout_marginLeft="100dp"
                 android:text="Pemesanan"
-                tools:ignore="OnClick" />
+                />
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
             android:layout_marginRight="20dp"

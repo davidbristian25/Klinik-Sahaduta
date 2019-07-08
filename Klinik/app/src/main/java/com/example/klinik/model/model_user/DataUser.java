@@ -3,142 +3,60 @@ package com.example.klinik.model.model_user;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Ujang Wahyu on 04/01/2018.
- */
 public class DataUser {
   @SerializedName("no_rm")
   @Expose
-  private Integer no_rm;
-
-  @SerializedName("NIK")
-  @Expose
-  private String nik;
-
-  @SerializedName("tgl_lahir")
-  @Expose
-  private String tgl_lahir;
-
-  @SerializedName("nama_pasien")
-  @Expose
-  private String nama_pasien;
-
-  @SerializedName("nama_kk")
-  @Expose
-  private String nama_kk;
-
-  @SerializedName("pendidikan")
-  @Expose
-  private String pendidikan;
-
-  @SerializedName("pekerjaan")
-  @Expose
-  private String pekerjaan;
-
-  @SerializedName("no_hp")
-  @Expose
-  private String no_hp;
-
-  @SerializedName("jenis_kelamin")
-  @Expose
-  private Character jenis_kelamin;
-
-  @SerializedName("alamat")
-  @Expose
-  private String alamat;
-
-  @SerializedName("agama")
-  @Expose
-  private String agama;
+  private String no_rm;
 
   @SerializedName("password")
   @Expose
   private String password;
 
-  @SerializedName("group_user")
+  @SerializedName("nama_pasien")
   @Expose
-  private Integer group_user;
+  private String nama_pasien;
 
-  @SerializedName("photo")
+  @SerializedName("tgl_lahir")
   @Expose
-  private String photo;
+  private String tgl_lahir;
+
+  @SerializedName("alamat")
+  @Expose
+  private String alamat;
+
+  @SerializedName("nama_kk")
+  @Expose
+  private String nama_kk;
+
+  @SerializedName("id_agama")
+  @Expose
+  private String id_agama;
+
+  @SerializedName("id_pendidikan")
+  @Expose
+  private String id_pendidikan;
+
+  @SerializedName("id_pekerjaan")
+  @Expose
+  private String id_pekerjaan;
+
+  @SerializedName("id_jenis_kelamin")
+  @Expose
+  private String id_jenis_kelamin;
+
+  @SerializedName("no_hp")
+  @Expose
+  private String no_hp;
+
+  @SerializedName("NIK")
+  @Expose
+  private String NIK;
 
 
-  public Integer getNo_rm() { return no_rm; }
+  public String getNo_rm() { return no_rm; }
 
-  public void setNo_rm(Integer no_rm) {
+  public void setNo_rm(String no_rm) {
     this.no_rm = no_rm;
-  }
-
-  public String getNik() {
-    return nik;
-  }
-
-  public void setNik(String nik) { this.nik = nik;
-  }
-
-  public String getTglLahir() {
-    return tgl_lahir;
-  }
-
-  public void setTglLahir(String tgl_lahir) {
-    this.tgl_lahir = tgl_lahir;
-  }
-
-  public String getNamaPasien() {
-    return nama_pasien;
-  }
-
-  public void setNamaPasien(String nama_pasien) {
-    this.nama_pasien = nama_pasien;
-  }
-
-  public String getNamaKK() {
-    return nama_kk;
-  }
-
-  public void setNamaKK(String nama_kk) {
-    this.nama_kk = nama_kk;
-  }
-
-  public String getPendidikan() {
-    return pendidikan;
-  }
-
-  public void setPendidikan(String pendidikan) {
-    this.pendidikan = pendidikan;
-  }
-
-  public String getPekerjaan() {
-    return pekerjaan;
-  }
-
-  public void setPekerjaan(String pekerjaan) {
-    this.pekerjaan = pekerjaan;
-  }
-
-  public String getNo_hp() {
-    return no_hp;
-  }
-
-  public void setNo_hp(String no_hp) {
-    this.no_hp = no_hp;
-  }
-
-  public Character getJenis_kelamin() {
-    return jenis_kelamin;
-  }
-
-  public void setJenis_kelamin(Character jenis_kelamin) {
-    this.jenis_kelamin = jenis_kelamin;
-  }
-
-  public String getAlamat() {
-    return alamat;
-  }
-
-  public void setAlamat(String alamat) {
-    this.alamat = alamat;
   }
 
   public String getPassword() {
@@ -149,21 +67,100 @@ public class DataUser {
     this.password = password;
   }
 
-  public String getPhoto() {
-    return photo;
+  public String getNamaPasien() {
+    return nama_pasien;
   }
 
-  public void setPhoto(String photo) {
-    this.photo = photo;
+  public void setNamaPasien(String nama_pasien) {
+    this.nama_pasien = nama_pasien;
   }
 
-  public Integer getGroup_user() {
-    return group_user;
+  public String getTglLahir() {
+    return tgl_lahir;
   }
 
-  public void setGroup_user(Integer group_user) {
-    this.group_user = group_user;
+  public void setTglLahir(String tgl_lahir) {
+    this.tgl_lahir = tgl_lahir;
   }
+
+  public String getAlamat() {
+    return alamat;
+  }
+
+  public void setAlamat(String alamat) {
+    this.alamat = alamat;
+  }
+
+  public String getNamaKK() {
+    return nama_kk;
+  }
+
+  public void setNamaKK(String nama_kk) {
+    this.nama_kk = nama_kk;
+  }
+
+  public String getid_agama() {
+    return id_agama;
+  }
+
+  public void setid_agama(String id_agama) {
+    this.id_agama = id_agama;
+  }
+
+  public String getid_pendidikan() {
+    return id_pendidikan;
+  }
+
+  public void setid_pendidikan(String id_pendidikan) {
+    this.id_pendidikan = id_pendidikan;
+  }
+
+  public String getid_pekerjaan() {
+    return id_pekerjaan;
+  }
+
+  public void setid_pekerjaan(String id_pekerjaan) {
+    this.id_pekerjaan = id_pekerjaan;
+  }
+
+  public String getid_jenis_kelamin() {
+    return id_jenis_kelamin;
+  }
+
+  public void setid_jenis_kelamin(String id_jenis_kelamin) {
+    this.id_jenis_kelamin = id_jenis_kelamin;
+  }
+
+  public String getNo_hp() {
+    return no_hp;
+  }
+
+  public void setNo_hp(String no_hp) {
+    this.no_hp = no_hp;
+  }
+
+  public String getNIK() {
+    return NIK;
+  }
+
+  public void setNIK(String NIK) { this.NIK = NIK;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

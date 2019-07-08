@@ -1,7 +1,8 @@
 package com.example.klinik.api;
 
-import com.example.klinik.model.model_user.ResponseRegister;
+import com.example.klinik.model.mode_antrian.ResponseAntrian;
 import com.example.klinik.model.model_user.ResponseLogin;
+import com.example.klinik.model.model_user.ResponseRegister;
 import com.example.klinik.model.model_user.ResponseUser;
 
 import retrofit2.Call;
@@ -12,9 +13,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-/**
- * Created by Ujang Wahyu on 04/01/2018.
- */
+
 
 public interface request{
   @FormUrlEncoded
@@ -29,14 +28,18 @@ public interface request{
                                       @Field("tgl_lahir")String tgl_lahir,
                                       @Field("alamat")String alamat,
                                       @Field("nama_kk")String nama_kk,
-                                      @Field("agama")String agama,
-                                      @Field("pendidikan")String pendidikan,
-                                      @Field("pekerjaan")String pekerjaan,
-                                      @Field("jenis_kelamin") String jenis_kelamin,
+                                      @Field("id_agama")String agama,
+                                      @Field("id_pendidikan")String pendidikan,
+                                      @Field("id_pekerjaan")String pekerjaan,
+                                      @Field("id_jenis_kelamin") String jenis_kelamin,
                                       @Field("no_hp")String no_hp,
                                       @Field("NIK")String NIK)
 
                                       /*@Field("group_user")Integer group_user*/;
+
+  @FormUrlEncoded
+  @POST("Api/user")
+  Call<ResponseAntrian> PemesananAntrian(@Field("no_rm")String no_rm);
 
   @FormUrlEncoded
   @PUT("Api/user")

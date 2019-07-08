@@ -22,9 +22,9 @@
         android:theme="@style/AppThemeRegist"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".HistoryActivity"></activity>
+        <activity android:name=".ActivityPemesanan"></activity>
         <activity
-            android:name=".ActivityLogin"
+            android:name=".ActivitySplash"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ActivityLogin"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ActivityRegister"
             android:screenOrientation="portrait" />
@@ -49,6 +52,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".KomentarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HistoryActivity"
             android:screenOrientation="portrait" />
     </application>
 

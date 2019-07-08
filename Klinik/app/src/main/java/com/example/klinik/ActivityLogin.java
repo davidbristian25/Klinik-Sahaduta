@@ -2,6 +2,7 @@ package com.example.klinik;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.klinik.SPreferenced.SPref;
 import com.example.klinik.api.client;
+import com.example.klinik.helper.SharedPrefManager;
 import com.example.klinik.model.model_user.DataUser;
 import com.example.klinik.model.model_user.ResponseLogin;
 import com.example.klinik.myinterface.InitComponent;
@@ -41,7 +43,7 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
   private MyTextView txt_bantuan;
   private TextView logofont;
   private CoordinatorLayout coordinatorlayout;
-
+  private SharedPrefManager sharedPrefManager;
   //declare context
   private Context mContext;
 
@@ -55,7 +57,16 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
+
+    sharedPrefManager = new SharedPrefManager(this);
     mContext=this;
+
+      if (sharedPrefManager.getSPSudahLogin()){
+          startActivity(new Intent(ActivityLogin.this, ActivityBeranda.class)
+                  .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+          finish();
+      }
+
     startInit();
 
   }
@@ -83,6 +94,7 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
     Typeface custom_fonts = Typeface.createFromAsset(getAssets(), "fonts/ArgonPERSONAL-Regular.otf");
     no_rm=(MyEditText)findViewById(R.id.no_rm);
     logofont.setTypeface(custom_fonts);
+
   }
 
 
@@ -114,7 +126,7 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
         break;
 
       case R.id.txt_bantuan:
-        move.moveActivity(mContext,ActivityBeranda.class);
+        move.moveActivity(mContext,ActivityBantuan.class);
         break;
     }
   }
@@ -123,38 +135,70 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
     return (!validate.cek(no_rm)&&!validate.cek(password)) ? true : false;
   }
 
+
   public void login(){
     pDialog = new ProgressDialog(this);
     pDialog.setMessage("Loading");
     pDialog.setCancelable(false);
     pDialog.show();
 
-    Call<ResponseLogin> user=client.getApi().auth(no_rm.getText().toString(),password.getText().toString());
+    Call<ResponseLogin>
+            user = client.getApi().auth(
+                    no_rm.getText().toString(),
+                    password.getText().toString());
+    //Log.e("response login",no_rm.getText().toString()+" "+password.getText().toString());
     user.enqueue(new Callback<ResponseLogin>() {
       @Override
       public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
         pDialog.hide();
+        Log.e("Response",response.message());
         if (response.isSuccessful()){
           if (response.body().getStatus()){
-            userData=response.body().getData();
-            Toasty.success(mContext,"login berhasil",Toast.LENGTH_LONG).show();
-            Log.d("data user",userData.toString());
-            setPreference(userData);
-            move.moveActivity(mContext,ActivityBeranda.class);
-//                        if (userData.getGroup_user().equals(1))
-//                            move.moveActivity(mContext,ActivityBeranda.class);
-//                        else
-//                            move.moveActivity(mContext,ActivityBeranda.class);
-            finish();
+            userData = response.body().getData();
+            //pDialog.dismiss();
+            //try {
+                //JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                //if (jsonRESULTS.getString("error").equals("false")){
+                    Toasty.success(mContext,"login berhasil",Toast.LENGTH_LONG).show();
+                    String no_rm = userData.getNo_rm();
+                    sharedPrefManager.saveSPString(SharedPrefManager.SP_NO_RM, no_rm);
+                    // Shared Pref ini berfungsi untuk menjadi trigger session login
+                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+                    startActivity(new Intent(mContext, ActivityBeranda.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                    finish();
+                //} else {
+                    // Jika login gagal
+                    //String error_message = jsonRESULTS.getString("error_msg");
+                    //Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+               // }
+            //} catch (JSONException e) {
+              //  e.printStackTrace();
+           // } catch (IOException e) {
+               // e.printStackTrace();
+           // }
+            //Log.d("data user",userData.toString());
+            //setPreference(userData);
+            //Object no_rm = null;
+            //move.moveActivity(mContext,ActivityBeranda.class);
+                        //if (userData.getNo_rm().equals("false"))
+                            //move.moveActivity(mContext,ActivityBeranda.class);
+                        //
+                          // }else{
+                            //move.moveActivity(mContext,ActivityBeranda.class);
+                            //  Log.e("else",response.message());
+            //finish();
           }else{
             Toasty.error(mContext,"Username dan password salah",Toast.LENGTH_LONG).show();
           }
         }else{
           Toasty.error(mContext,"Username dan password salah",Toast.LENGTH_LONG).show();
         }
+
       }
       @Override
       public void onFailure(Call<ResponseLogin> call, Throwable t) {
+        //Log.e("on Failure ",call.toString());
         pDialog.hide();
         Toasty.success(mContext,"Koneksi Tidak ada",Toast.LENGTH_LONG).show();
         move.moveActivity(mContext,ActivityBeranda.class);
@@ -166,7 +210,7 @@ public class ActivityLogin extends AppCompatActivity implements InitComponent, V
   }
 
   private void setPreference(DataUser du){
-    Prefs.putInt(SPref.getNo_rm(),du.getNo_rm());
+    Prefs.putString(SPref.getNo_rm(),du.getNo_rm());
     Prefs.putString(SPref.getPassword(),du.getPassword());
     Prefs.putString(SPref.getNamaPasien(),du.getNamaPasien());
 

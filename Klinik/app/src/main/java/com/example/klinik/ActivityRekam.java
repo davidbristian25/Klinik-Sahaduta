@@ -13,7 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.klinik.model.model_rm.DataRM;
+//import com.example.klinik.model.model_rm.DataRM;
 import com.example.klinik.myinterface.InitComponent;
 import com.example.klinik.utils.move;
 
@@ -28,7 +28,7 @@ import customfonts.MyTextView;
 
 public class ActivityRekam extends AppCompatActivity implements InitComponent, View.OnClickListener {
 
-  private DataRM RM;
+ // private DataRM RM;
   private TextView TampilRM;
   private MyTextView btn_lanjut;
 
@@ -48,7 +48,7 @@ public class ActivityRekam extends AppCompatActivity implements InitComponent, V
     startInit();
     mContext=this;
 
-    String url = "http://192.168.43.93/Android/getdata.php"; //sesuaikan dengan ip pc anda
+    String url = "http://192.168.43.93/sahaduta/getdata.php";
     TampilRM = (TextView)findViewById(R.id.TampilRM);
 
     requestQueue = Volley.newRequestQueue(ActivityRekam.this);

@@ -1,14 +1,9 @@
 package com.example.klinik.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.widget.Toast;
 
-/**
- * Created by Ujang Wahyu on 04/01/2018.
- */
+
 public class move extends Intent {
 
     public static void moveActivity(Context mContext,Class<?> activity){

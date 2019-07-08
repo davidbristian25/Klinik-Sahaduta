@@ -1,30 +1,99 @@
 package com.example.klinik;
 
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HistoryActivity extends AppCompatActivity {
 
     ListView listView;
     ArrayAdapter<String> adapter;
+    private static final String JSON_URL = "http://192.168.43.93/andro/crud_ki/history.php";
+
+    private List<PlayerItem> playerItemList;
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_history);
+
+        listView =  findViewById(R.id.listView);
+        playerItemList = new ArrayList<>();
+
+
+
+
+        loadPlayer();
+    }
+
+    private void loadPlayer() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            JSONObject obj = new JSONObject(response);
+                            int success = obj.getInt("success");
+                            if (success == 1){
+                            JSONArray playerArray = obj.getJSONArray("result");
+
+                            for (int i = 0; i < playerArray.length(); i++) {
+
+                                JSONObject playerObject = playerArray.getJSONObject(i);
+
+
+                                PlayerItem playerItem = new PlayerItem(playerObject.getString("id_komentar"),
+                                        playerObject.getString("no_rm"),
+                                        playerObject.getString("Kritik"),
+                                        playerObject.getString("saran"));
+
+                                playerItemList.add(playerItem);
+                            }
+
+                        } else {
+                                Toast.makeText(getApplicationContext(), "There is no histories yet", Toast.LENGTH_SHORT).show();
+                            }
+
+                            ListViewAdapter adapter = new ListViewAdapter(playerItemList, getApplicationContext());
+
+                            listView.setAdapter(adapter);
+
+                        } catch (JSONException e) {
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
@@ -40,7 +109,7 @@ public class HistoryActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             String result = "";
-            String host = "http://192.168.43.237/andro/crud_ki/read.php";
+            String host = "http://192.168.43.93/andro/crud_ki/history.php";
             try{
                 HttpClient client = new DefaultHttpClient();
                 HttpGet request = new HttpGet();
@@ -90,5 +159,5 @@ public class HistoryActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
-    }
+    }*/
 }

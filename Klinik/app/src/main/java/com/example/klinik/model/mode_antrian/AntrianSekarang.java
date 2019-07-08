@@ -1,10 +1,9 @@
-package com.example.klinik.model.model_rm;
+package com.example.klinik.model.mode_antrian;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
-public class DataRM {
+public class AntrianSekarang {
     @SerializedName("no_rm")
     @Expose
     private String no_rm;

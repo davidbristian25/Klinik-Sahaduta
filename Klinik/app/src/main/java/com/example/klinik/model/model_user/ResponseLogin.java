@@ -3,9 +3,7 @@ package com.example.klinik.model.model_user;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Ujang Wahyu on 04/01/2018.
- */
+
 public class ResponseLogin {
   @SerializedName("status")
   @Expose
@@ -42,4 +40,6 @@ public class ResponseLogin {
   public void setData(DataUser data) {
     this.data = data;
   }
+
+
 }

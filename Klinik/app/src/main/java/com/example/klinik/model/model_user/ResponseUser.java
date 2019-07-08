@@ -5,9 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by Ujang Wahyu on 04/01/2018.
- */
 
 
 public class ResponseUser {

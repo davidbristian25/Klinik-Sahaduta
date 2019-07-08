@@ -157,17 +157,91 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:layout_marginTop="10dp">
-
-                    <Spinner
-                        android:id="@+id/Agama"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
-                        android:entries="@array/pilih_agama">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/roundwhite"
+                        android:layout_marginBottom="5sp"
+                        >
+                        <customfonts.MyTextView
+                            android:id="@+id/Agama"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:text="Agama"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
 
-                    </Spinner>
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
 
+                            <RadioButton
+                                android:id="@+id/Islam"
+                                android:layout_width="154dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:paddingTop="5sp"
+                                android:text="Islam" />
+                            <RadioButton
+                                android:id="@+id/Kristen"
+                                android:paddingTop="5sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kristen"
+                                android:layout_margin="10dp"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+                            <RadioButton
+                                android:id="@+id/Katolik"
+                                android:layout_width="154dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:paddingTop="0sp"
+                                android:text="Katolik" />
+                            <RadioButton
+                                android:id="@+id/Hindu"
+                                android:paddingTop="0sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hindu"
+                                android:layout_margin="10dp"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+                            <RadioButton
+                                android:id="@+id/Budha"
+                                android:layout_width="154dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:paddingTop="0sp"
+                                android:text="Budha" />
+
+                            <RadioButton
+                                android:id="@+id/Konghuchu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_marginRight="0dp"
+                                android:paddingTop="0sp"
+                                android:text="Konghuchu" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -175,17 +249,91 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:layout_marginTop="10dp">
-
-                    <Spinner
-                        android:id="@+id/Pendidikan"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
-                        android:entries="@array/pilih_pendidikan">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/roundwhite"
+                        android:layout_marginBottom="5sp"
+                        >
+                        <customfonts.MyTextView
+                            android:id="@+id/Pendidikan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:text="Pendidikan"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
 
-                    </Spinner>
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
 
+                            <RadioButton
+                                android:id="@+id/SD"
+                                android:layout_width="154dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:paddingTop="5sp"
+                                android:text="SD / sederajat" />
+                            <RadioButton
+                                android:id="@+id/SMP"
+                                android:paddingTop="5sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SMP / sederajat"
+                                android:layout_margin="10dp"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+                            <RadioButton
+                                android:id="@+id/SMA"
+                                android:layout_width="154dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:paddingTop="0sp"
+                                android:text="SMA / sederajat" />
+                            <RadioButton
+                                android:id="@+id/S1"
+                                android:paddingTop="0sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Strata 1 (S1)"
+                                android:layout_margin="10dp"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+                            <RadioButton
+                                android:id="@+id/S2"
+                                android:layout_width="154dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:paddingTop="0sp"
+                                android:text="Strata 2 (S2)" />
+
+                            <RadioButton
+                                android:id="@+id/S3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_marginRight="0dp"
+                                android:paddingTop="0sp"
+                                android:text="Strata 3 (S3)" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -193,17 +341,91 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:layout_marginTop="10dp">
-
-                    <Spinner
-                        android:id="@+id/Pekerjaan"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
-                        android:entries="@array/pilih_pekerjaan">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/roundwhite"
+                        android:layout_marginBottom="5sp"
+                        >
+                        <customfonts.MyTextView
+                            android:id="@+id/Pekerjaan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:text="Pekerjaan"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
 
-                    </Spinner>
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+                            <RadioButton
+                                android:id="@+id/Belum"
+                                android:paddingTop="5sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Belum/tidak bekerja"
+                                android:layout_margin="10dp"
+                                />
+                            <RadioButton
+                                android:id="@+id/Pelajar"
+                                android:paddingTop="5sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pelajar/mahasiswa"
+                                android:layout_margin="10dp"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
 
+                            <RadioButton
+                                android:id="@+id/PNS"
+                                android:layout_width="159dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:paddingTop="0sp"
+                                android:text="PNS" />
+                            <RadioButton
+                                android:id="@+id/Swasta"
+                                android:paddingTop="0sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Wiraswasta"
+                                android:layout_margin="10dp"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+                            <RadioButton
+                                android:id="@+id/Buruh"
+                                android:layout_width="160dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:paddingTop="0sp"
+                                android:text="Buruh/pegawai" />
+
+                            <RadioButton
+                                android:id="@+id/Pensiunan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_marginRight="0dp"
+                                android:paddingTop="0sp"
+                                android:text="Pensiunan" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"

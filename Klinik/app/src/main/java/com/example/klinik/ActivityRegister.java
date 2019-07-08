@@ -6,12 +6,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.klinik.api.client;
@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import customfonts.MyTextView;
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,13 +39,37 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
     private EditText birth;
     private EditText Alamat;
     private EditText KK;
-    private Spinner Agama;
-    private Spinner Pendidikan;
-    private Spinner Pekerjaan;
+    private MyTextView Agama;
+    private MyTextView Pendidikan;
+    private MyTextView Pekerjaan;
+    private RadioButton Islam;
+    private RadioButton Kristen;
+    private RadioButton Katolik;
+    private RadioButton Hindu;
+    private RadioButton Budha;
+    private RadioButton Konghuchu;
+
+    private RadioButton SD;
+    private RadioButton SMP;
+    private RadioButton SMA;
+    private RadioButton S1;
+    private RadioButton S2;
+    private RadioButton S3;
+
+    private RadioButton Belum;
+    private RadioButton Pelajar;
+    private RadioButton PNS;
+    private RadioButton Swasta;
+    private RadioButton Buruh;
+    private RadioButton Pensiunan;
+
     private EditText no_hp;
     private EditText Password;
     private EditText ConPassword;
     private String JK;
+    private String AG;
+    private String PD;
+    private String PK;
     private RadioButton rbl;
     private RadioButton rbp;
     private Button button_regist;
@@ -100,9 +125,30 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
         birth=(EditText)findViewById(R.id.birth);
         Alamat=(EditText)findViewById(R.id.Alamat);
         KK=(EditText)findViewById(R.id.KK);
-        Agama=(Spinner)findViewById(R.id.Agama);
-        Pendidikan=(Spinner) findViewById(R.id.Pendidikan);
-        Pekerjaan=(Spinner) findViewById(R.id.Pekerjaan);
+        Agama=(MyTextView)findViewById(R.id.Agama);
+        Pendidikan=(MyTextView) findViewById(R.id.Pendidikan);
+        Pekerjaan=(MyTextView) findViewById(R.id.Pekerjaan);
+        Islam = (RadioButton)findViewById(R.id.Islam);
+        Kristen = (RadioButton)findViewById(R.id.Kristen);
+        Katolik = (RadioButton)findViewById(R.id.Katolik);
+        Hindu = (RadioButton)findViewById(R.id.Hindu);
+        Budha = (RadioButton)findViewById(R.id.Budha);
+        Konghuchu =  (RadioButton)findViewById(R.id.Konghuchu);
+
+        SD  = (RadioButton)findViewById(R.id.SD);
+        SMP = (RadioButton)findViewById(R.id.SMP);
+        SMA = (RadioButton)findViewById(R.id.SMA);
+        S1 = (RadioButton)findViewById(R.id.S1);
+        S2 = (RadioButton)findViewById(R.id.S2);
+        S3 = (RadioButton)findViewById(R.id.S3);
+
+        Belum = (RadioButton)findViewById(R.id.Belum);
+        Pelajar = (RadioButton)findViewById(R.id.Pelajar);
+        PNS = (RadioButton)findViewById(R.id.PNS);
+        Swasta = (RadioButton)findViewById(R.id.Swasta);
+        Buruh = (RadioButton)findViewById(R.id.Buruh);
+        Pensiunan = (RadioButton)findViewById(R.id.Pensiunan);
+
         no_hp=(EditText)findViewById(R.id.no_hp);
         Password=(EditText)findViewById(R.id.Password);
         ConPassword=(EditText)findViewById(R.id.ConPassword);
@@ -157,6 +203,28 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
         button_regist.setOnClickListener(this);
         rbl.setOnClickListener(this);
         rbp.setOnClickListener(this);
+
+        Islam.setOnClickListener(this);
+        Kristen.setOnClickListener(this);
+        Katolik.setOnClickListener(this);
+        Hindu.setOnClickListener(this);
+        Budha.setOnClickListener(this);
+        Konghuchu.setOnClickListener(this);
+
+        SD.setOnClickListener(this);
+        SMP.setOnClickListener(this);
+        SMA.setOnClickListener(this);
+        S1.setOnClickListener(this);
+        S2.setOnClickListener(this);
+        S3.setOnClickListener(this);
+
+        Belum.setOnClickListener(this);
+        Pelajar.setOnClickListener(this);
+        PNS.setOnClickListener(this);
+        Swasta.setOnClickListener(this);
+        Buruh.setOnClickListener(this);
+        Pensiunan.setOnClickListener(this);
+
     }
 
 
@@ -168,12 +236,159 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
                     register();
                 break;
             case R.id.jkl:
-                JK = "Laki-laki";
+                JK = "1";
                 rbp.setChecked(false);
                 break;
             case R.id.jkp:
-                JK = "Perempuan";
+                JK = "2";
                 rbl.setChecked(false);
+                break;
+
+            case R.id.Islam:
+                AG = "1";
+                Kristen.setChecked(false);
+                Katolik.setChecked(false);
+                Hindu.setChecked(false);
+                Budha.setChecked(false);
+                Konghuchu.setChecked(false);
+                break;
+            case R.id.Kristen:
+                AG = "2";
+                Islam.setChecked(false);
+                Katolik.setChecked(false);
+                Hindu.setChecked(false);
+                Budha.setChecked(false);
+                Konghuchu.setChecked(false);
+                break;
+            case R.id.Katolik:
+                AG = "3";
+                Islam.setChecked(false);
+                Kristen.setChecked(false);
+                Hindu.setChecked(false);
+                Budha.setChecked(false);
+                Konghuchu.setChecked(false);
+                break;
+            case R.id.Hindu:
+                AG = "4";
+                Islam.setChecked(false);
+                Kristen.setChecked(false);
+                Katolik.setChecked(false);
+                Budha.setChecked(false);
+                Konghuchu.setChecked(false);
+                break;
+            case R.id.Budha:
+                AG = "5";
+                Islam.setChecked(false);
+                Kristen.setChecked(false);
+                Katolik.setChecked(false);
+                Hindu.setChecked(false);
+                Konghuchu.setChecked(false);
+                break;
+            case R.id.Konghuchu:
+                AG = "6";
+                Islam.setChecked(false);
+                Kristen.setChecked(false);
+                Katolik.setChecked(false);
+                Hindu.setChecked(false);
+                Budha.setChecked(false);
+                break;
+
+            case R.id.SD:
+                PD = "1";
+                SMP.setChecked(false);
+                SMA.setChecked(false);
+                S1.setChecked(false);
+                S2.setChecked(false);
+                S3.setChecked(false);
+                break;
+            case R.id.SMP:
+                PD = "2";
+                SD.setChecked(false);
+                SMA.setChecked(false);
+                S1.setChecked(false);
+                S2.setChecked(false);
+                S3.setChecked(false);
+                break;
+            case R.id.SMA:
+                PD = "3";
+                SD.setChecked(false);
+                SMP.setChecked(false);
+                S1.setChecked(false);
+                S2.setChecked(false);
+                S3.setChecked(false);
+                break;
+            case R.id.S1:
+                PD = "4";
+                SD.setChecked(false);
+                SMP.setChecked(false);
+                SMA.setChecked(false);
+                S2.setChecked(false);
+                S3.setChecked(false);
+                break;
+            case R.id.S2:
+                PD = "5";
+                SD.setChecked(false);
+                SMP.setChecked(false);
+                SMA.setChecked(false);
+                S1.setChecked(false);
+                S3.setChecked(false);
+                break;
+            case R.id.S3:
+                PD = "6";
+                SD.setChecked(false);
+                SMP.setChecked(false);
+                SMA.setChecked(false);
+                S1.setChecked(false);
+                S2.setChecked(false);
+                break;
+
+            case R.id.Belum:
+                PK = "1";
+                Pelajar.setChecked(false);
+                PNS.setChecked(false);
+                Swasta.setChecked(false);
+                Buruh.setChecked(false);
+                Pensiunan.setChecked(false);
+                break;
+            case R.id.Pelajar:
+                PK = "2";
+                Belum.setChecked(false);
+                PNS.setChecked(false);
+                Swasta.setChecked(false);
+                Buruh.setChecked(false);
+                Pensiunan.setChecked(false);
+                break;
+            case R.id.PNS:
+                PK = "3";
+                Belum.setChecked(false);
+                Pelajar.setChecked(false);
+                Swasta.setChecked(false);
+                Buruh.setChecked(false);
+                Pensiunan.setChecked(false);
+                break;
+            case R.id.Swasta:
+                PK = "4";
+                Belum.setChecked(false);
+                Pelajar.setChecked(false);
+                PNS.setChecked(false);
+                Buruh.setChecked(false);
+                Pensiunan.setChecked(false);
+                break;
+            case R.id.Buruh:
+                PK = "5";
+                Belum.setChecked(false);
+                Pelajar.setChecked(false);
+                PNS.setChecked(false);
+                Swasta.setChecked(false);
+                Pensiunan.setChecked(false);
+                break;
+            case R.id.Pensiunan:
+                PK = "6";
+                Belum.setChecked(false);
+                Pelajar.setChecked(false);
+                PNS.setChecked(false);
+                Swasta.setChecked(false);
+                Buruh.setChecked(false);
                 break;
         }
 
@@ -228,9 +443,12 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
                                 birth.getText().toString(),
                                 Alamat.getText().toString(),
                                 KK.getText().toString(),
-                                Agama.getSelectedItem().toString(),
-                                Pendidikan.getSelectedItem().toString(),
-                                Pekerjaan.getSelectedItem().toString(),
+                                AG,
+                                PD,
+                                PK,
+                                //Agama.getSelectedItem().toString(),
+                                //Pendidikan.getSelectedItem().toString(),
+                                //Pekerjaan.getSelectedItem().toString(),
                                 JK,
                                 no_hp.getText().toString(),
                                 NIK.getText().toString()
@@ -241,6 +459,7 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
             @Override
             public void onResponse(Call<ResponseRegister> call, Response<ResponseRegister> response) {
                 pDialog.hide();
+                Log.e("Response",response.message());
                 if (response.isSuccessful()){
                     if (response.body().getStatus()) {
                         Toasty.success(mContext,"Berhasil Dibuat", Toast.LENGTH_LONG).show();
@@ -255,8 +474,10 @@ public class ActivityRegister extends AppCompatActivity  implements InitComponen
 
             @Override
             public void onFailure(Call<ResponseRegister> call, Throwable t) {
+                Log.d("error" , ""+call);
+                //Log.e("on Failure ",call.toString());
                 pDialog.hide();
-                Toasty.success(mContext,"Berhasil Dibuat", Toast.LENGTH_LONG).show();
+                Toasty.success(mContext,"Berhasil Dibuat u", Toast.LENGTH_LONG).show();
                 move.moveActivity(mContext,ActivityRekam.class);
             }
         });

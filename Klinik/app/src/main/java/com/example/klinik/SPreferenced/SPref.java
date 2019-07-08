@@ -1,8 +1,6 @@
 package com.example.klinik.SPreferenced;
 
-/**
- * Created by Ujang Wahyu on 04/01/2018.
- */
+
 
 public class SPref {
   private static String no_rm="no_rm";

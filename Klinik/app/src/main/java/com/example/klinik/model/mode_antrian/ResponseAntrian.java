@@ -1,10 +1,10 @@
-package com.example.klinik.model.model_user;
+package com.example.klinik.model.mode_antrian;
 
+import com.example.klinik.model.model_user.DataUser;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
-public class ResponseRegister {
+public class ResponseAntrian {
     @SerializedName("status")
     @Expose
     private Boolean status;

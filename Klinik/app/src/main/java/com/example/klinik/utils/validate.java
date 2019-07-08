@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-/**
- * Created by Ujang Wahyu on 04/01/2018.
- */
+import customfonts.MyTextView;
+
+
 public class validate {
 
     public static boolean cek(EditText et) {
@@ -22,6 +22,20 @@ public class validate {
                 focusView.requestFocus();
             }
             return cancel;
+    }
+
+    public static boolean cek(MyTextView et) {
+        View focusView = null;
+        Boolean cancel=false;
+        if (TextUtils.isEmpty(et.getText().toString().trim())) {
+            et.setError("Inputan Harus Di Isi");
+            focusView = et;
+            cancel = true;
+        }
+        if (cancel) {
+            focusView.requestFocus();
+        }
+        return cancel;
     }
 
     public static boolean cek(Spinner et) {
